@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	Delete post page
+{% endblock %}
+
+{% block content %}
+	<form action="{{ post.get_delete_url }}" method="post">
+		{% csrf_token %}
+		<h1> {{ post.title }} </h1>
+		<p> {{ post.text }} </p>
+		<p> {{ post.date }} </p>
+	<a href="{{ post.get_absolute_url }}" class="btn btn-primary">Cancel</a>
+	<button type="submit" class="btn btn-danger">Delete</button>
+	</form>
+{% endblock %}
